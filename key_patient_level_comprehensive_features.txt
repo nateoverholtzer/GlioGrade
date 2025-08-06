@@ -1,0 +1,46 @@
+Key for feature_construction_peritumor
+
+clinical variables (9):
+
+patient_id: unique identifier
+who_grade: tumor grade (2, 3, or 4)
+age_at_mri: patient age at scan
+sex: patient sex
+overall_survival_days: survival time
+mgmt_status: methylation status (positive/negative)
+mgmt_index: continuous methylation score
+1p19q: chromosomal deletion status
+eor: extent of resection
+
+basic fa statistics (12):
+
+fa_mean, fa_std, fa_min, fa_max, fa_median: basic descriptives
+fa_p5, fa_p10, fa_p25, fa_p75, fa_p90, fa_p95: percentiles
+fa_skewness, fa_kurtosis: distribution shape
+fa_entropy: histogram entropy
+fa_mode: peak intensity value
+
+distance shell features (16):
+for each shell (0-10mm, 10-20mm, 20-30mm, >30mm from tumor):
+
+shell_i_fa_mean, shell_i_fa_std, shell_i_fa_median, shell_i_voxel_count
+
+asymmetry features (6):
+
+hemispheric_asymmetry_mean, hemispheric_asymmetry_std: left-right differences
+left_hemisphere_fa_mean, right_hemisphere_fa_mean: hemisphere averages
+superior_inferior_asymmetry: up-down difference
+superior_fa_mean, inferior_fa_mean: regional averages
+
+gradient features (12):
+
+gradient_mean, gradient_std, gradient_median, gradient_p90: global edge stats
+shell_i_gradient_mean, shell_i_gradient_std: edge stats per distance shell
+
+tumor features (7):
+
+tumor_volume, brain_volume, tumor_brain_ratio: size metrics
+tumor_center_x_norm, tumor_center_y_norm, tumor_center_z_norm: normalized location
+edge_density: heterogeneity measure
+
+total: ~62 columns (9 clinical + ~53 imaging features)
